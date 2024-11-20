@@ -1,6 +1,6 @@
 {
   "name": "@uzmoi/clockwork-base32",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A fast and minimal implementation of Clockwork Base32 for TypeScript",
   "type": "module",
   "main": "dist/mod.js",
