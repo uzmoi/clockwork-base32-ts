@@ -31,4 +31,12 @@ describe("decode", () => {
       assertEquals(decode(encoded), raw);
     });
   }
+
+  test(`decode(a)`, () => {
+    assertEquals(decode("a"), new Uint8Array());
+  });
+
+  test(`decode(CR0)`, () => {
+    assertEquals(decode("CR0"), new Uint8Array(["f".charCodeAt(0)]));
+  });
 });
