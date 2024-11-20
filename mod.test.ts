@@ -11,7 +11,7 @@ const cases = [
     "The quick brown fox jumps over the lazy dog.",
     "AHM6A83HENMP6TS0C9S6YXVE41K6YY10D9TPTW3K41QQCSBJ41T6GS90DHGQMY90CHQPEBG",
   ],
-];
+] as const;
 
 describe("encode", () => {
   for (const [rawString, encoded] of cases) {
