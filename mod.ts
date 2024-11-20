@@ -1,3 +1,8 @@
+/**
+ * Encode Clockwork Base32.
+ *
+ * @see https://gist.github.com/szktty/228f85794e4187882a77734c89c384a8
+ */
 export const encode = (u8array: Uint8Array): string => {
   let string = "";
 
@@ -22,6 +27,13 @@ export const encode = (u8array: Uint8Array): string => {
   return string;
 };
 
+/**
+ * Decode Clockwork Base32.
+ *
+ * @throws {RangeError} If input contains invalid symbols.
+ *
+ * @see https://gist.github.com/szktty/228f85794e4187882a77734c89c384a8
+ */
 export const decode = (string: string): Uint8Array => {
   const u8array = new Uint8Array(string.length * (5 / 8));
 
