@@ -68,19 +68,18 @@ const encodeSymbols = [
   "R", "S", "T", "V", "W", "X", "Y", "Z",
 ] as const;
 
-// deno-fmt-ignore
-const decodeSymbols = [
-  "0Oo", "1IiLl", "2",  "3",  "4",  "5",  "6",  "7",
-  "8",   "9",     "Aa", "Bb", "Cc", "Dd", "Ee", "Ff",
-  "Gg",  "Hh",    "Jj", "Kk", "Mm", "Nn", "Pp", "Qq",
-  "Rr",  "Ss",    "Tt", "Vv", "Ww", "Xx", "Yy", "Zz",
-] as const;
-
 const decodeSymbolMap = new Uint8Array(0x80).fill(0xff);
 
-for (let i = 0; i < decodeSymbols.length; i++) {
-  const symbols = decodeSymbols[i];
-  for (let j = 0; j < symbols.length; j++) {
-    decodeSymbolMap[symbols.charCodeAt(j)] = i;
+decodeSymbolMap[0x4F] = decodeSymbolMap[0x6F] = 0; // O
+decodeSymbolMap[0x49] = decodeSymbolMap[0x69] = 1; // I
+decodeSymbolMap[0x4C] = decodeSymbolMap[0x6C] = 1; // L
+
+for (let i = 0; i < encodeSymbols.length; i++) {
+  const code = encodeSymbols[i]!.charCodeAt(0);
+  decodeSymbolMap[code] = i;
+  // is upper alphabet
+  if (0x40 < code) {
+    // to lower alphabet
+    decodeSymbolMap[code + 0x20] = i;
   }
 }

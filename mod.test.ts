@@ -30,6 +30,10 @@ describe("decode", () => {
     test(`decode(${encoded})`, () => {
       assertEquals(decode(encoded), raw);
     });
+
+    test(`decode(${encoded.toLowerCase()})`, () => {
+      assertEquals(decode(encoded.toLowerCase()), raw);
+    });
   }
 
   test(`decode(a)`, () => {
