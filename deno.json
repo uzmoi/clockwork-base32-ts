@@ -1,7 +1,16 @@
 {
   "name": "@uzmoi/clockwork-base32",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "exports": "./mod.ts",
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "deno.json",
+      "mod.ts",
+      "package.json"
+    ]
+  },
   "tasks": {
     "dev": "deno test --watch mod.ts",
     "build": "esbuild mod.ts --outdir=dist --minify-syntax"
