@@ -1,0 +1,44 @@
+name: Publish Package
+
+on:
+  push:
+    tags: [v*.*.*]
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check version
+        run: jq -e '.version as $v | "${{ github.ref }}" | endswith("/v" + $v)' package.json
+
+      - uses: denoland/setup-deno@v2
+      - uses: actions/setup-node@v4
+        with:
+          registry-url: https://registry.npmjs.org
+
+      - run: deno install
+      - run: deno run build
+
+      - run: npm publish --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-jsr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check version
+        run: jq -e '.version as $v | "${{ github.ref }}" | endswith("/v" + $v)' deno.json
+
+      - uses: denoland/setup-deno@v2
+
+      - run: deno publish
