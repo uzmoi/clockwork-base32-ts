@@ -1,4 +1,4 @@
-import { assertEquals } from "@std/assert";
+import { assertEquals, assertThrows } from "@std/assert";
 import { describe, test } from "@std/testing/bdd";
 import { decode, encode } from "./mod.ts";
 
@@ -38,5 +38,15 @@ describe("decode", () => {
 
   test(`decode(CR0)`, () => {
     assertEquals(decode("CR0"), new Uint8Array(["f".charCodeAt(0)]));
+  });
+
+  describe("error", () => {
+    test(`decode(U)`, () => {
+      assertThrows(() => decode("U"), RangeError);
+    });
+
+    test(`decode(あ)`, () => {
+      assertThrows(() => decode("あ"), RangeError);
+    });
   });
 });

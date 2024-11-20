@@ -43,8 +43,8 @@ export const decode = (string: string): Uint8Array => {
   let offset = 0;
 
   for (let i = 0; i < string.length; i++) {
-    const u5 = decodeSymbolMap[string.charCodeAt(i)]!;
-    if (u5 === 0xff) {
+    const u5 = decodeSymbolMap[string.charCodeAt(i)];
+    if (u5 === undefined || u5 === 0xff) {
       throw new RangeError(`Invalid symbol: "${string[i]}"`);
     }
 
@@ -76,7 +76,7 @@ const decodeSymbols = [
   "Rr",  "Ss",    "Tt", "Vv", "Ww", "Xx", "Yy", "Zz",
 ] as const;
 
-const decodeSymbolMap = new Uint8Array(0xff).fill(0xff);
+const decodeSymbolMap = new Uint8Array(0x80).fill(0xff);
 
 for (let i = 0; i < decodeSymbols.length; i++) {
   const symbols = decodeSymbols[i];
