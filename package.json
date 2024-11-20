@@ -1,0 +1,33 @@
+{
+  "name": "@uzmoi/clockwork-base32",
+  "version": "0.1.0",
+  "description": "A fast and minimal implementation of Clockwork Base32 for TypeScript",
+  "type": "module",
+  "main": "dist/mod.js",
+  "types": "mod.ts",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "mod.ts"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uzmoi/clockwork-base32-ts.git"
+  },
+  "keywords": [
+    "base32",
+    "clockwork"
+  ],
+  "author": "uzmoi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uzmoi/clockwork-base32-ts/issues"
+  },
+  "homepage": "https://github.com/uzmoi/clockwork-base32-ts#readme",
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}
