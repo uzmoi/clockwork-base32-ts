@@ -27,7 +27,7 @@ deno add jsr:@uzmoi/clockwork-base32
 ```ts
 import * as base32 from "@uzmoi/clockwork-base32";
 
-const array = Uint8Array.from("Hello, world!", (c) => c.charCodeAt(0));
+const array = Uint8Array.from("Hello, world!", (c) => c.charCodeAt());
 
 base32.encode(array); // => "91JPRV3F5GG7EVVJDHJ22"
 
