@@ -1,19 +1,22 @@
 {
   "name": "@uzmoi/clockwork-base32",
   "version": "1.0.1",
-  "exports": "./mod.ts",
+  "exports": "./src/index.ts",
   "publish": {
     "include": [
+      "src/**/*.ts",
       "LICENSE",
       "README.md",
       "deno.json",
-      "mod.ts",
       "package.json"
+    ],
+    "exclude": [
+      "**/*.test.ts"
     ]
   },
   "tasks": {
-    "dev": "deno test --watch mod.ts",
-    "build": "esbuild mod.ts --outdir=dist --minify-syntax"
+    "dev": "deno test --watch src/**/*.ts",
+    "build": "tsc src/**/*.ts --outDir dist --target esnext --rewriteRelativeImportExtensions"
   },
   "license": "MIT",
   "imports": {
