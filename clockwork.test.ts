@@ -1,6 +1,6 @@
 import { assertEquals, assertThrows } from "@std/assert";
 import { describe, test } from "@std/testing/bdd";
-import { decode, encode } from "./index.ts";
+import { decode, encode } from "./src/index.ts";
 
 const cases = [
   ["", ""],
