@@ -36,20 +36,29 @@ describe("decode", () => {
     });
   }
 
-  test(`decode(a)`, () => {
+  test("decode(a)", () => {
     assertEquals(decode("a"), new Uint8Array());
   });
 
-  test(`decode(CR0)`, () => {
-    assertEquals(decode("CR0"), new Uint8Array(["f".charCodeAt(0)]));
-  });
+  for (
+    const [string, normal] of [
+      ["CR0", "CR"],
+      ["O0", "00"],
+      ["I0", "10"],
+      ["L0", "10"],
+    ] as const
+  ) {
+    test(`decode(${string})`, () => {
+      assertEquals(decode(string), decode(normal));
+    });
+  }
 
   describe("error", () => {
-    test(`decode(U)`, () => {
+    test("decode(U)", () => {
       assertThrows(() => decode("U"), RangeError);
     });
 
-    test(`decode(あ)`, () => {
+    test("decode(あ)", () => {
       assertThrows(() => decode("あ"), RangeError);
     });
   });
