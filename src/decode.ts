@@ -3,12 +3,20 @@ import { encodeSymbols } from "./encode.ts";
 /**
  * Decode Clockwork Base32.
  *
+ * @throws {RangeError} If byteOffset is invalid or the buffer is not long enough.
  * @throws {RangeError} If input contains invalid symbols.
  *
  * @see https://gist.github.com/szktty/228f85794e4187882a77734c89c384a8
  */
-export const decode = (string: string): Uint8Array => {
-  const u8array = new Uint8Array(string.length * (5 / 8));
+export const decode = <TArrayBuffer extends ArrayBufferLike = ArrayBuffer>(
+  string: string,
+  buffer?: TArrayBuffer,
+  byteOffset?: number,
+): Uint8Array<TArrayBuffer> => {
+  const length = string.length * (5 / 8);
+  const u8array = buffer == null
+    ? new Uint8Array(length) as Uint8Array<TArrayBuffer>
+    : new Uint8Array(buffer, byteOffset, length);
 
   let index = 0;
 
