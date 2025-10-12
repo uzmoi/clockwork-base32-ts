@@ -4,7 +4,7 @@ import { encodeSymbols } from "./encode.ts";
  * Decode Clockwork Base32.
  *
  * @throws {RangeError} If byteOffset is invalid or the buffer is not long enough.
- * @throws {RangeError} If input contains invalid symbols.
+ * @throws {SyntaxError} If input contains invalid symbols.
  *
  * @see https://gist.github.com/szktty/228f85794e4187882a77734c89c384a8
  */
@@ -26,7 +26,7 @@ export const decode = <TArrayBuffer extends ArrayBufferLike = ArrayBuffer>(
   for (let i = 0; i < string.length; i++) {
     const u5 = decodeSymbolMap[string.charCodeAt(i)];
     if (u5 === undefined || u5 === 0xff) {
-      throw new RangeError(`Invalid symbol: "${string[i]}"`);
+      throw new SyntaxError(`Invalid symbol: "${string[i]}"`);
     }
 
     offset += 5;
