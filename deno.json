@@ -9,9 +9,6 @@
       "README.md",
       "deno.json",
       "package.json"
-    ],
-    "exclude": [
-      "**/*.test.ts"
     ]
   },
   "tasks": {
