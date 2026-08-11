@@ -27,7 +27,7 @@
     "url": "https://github.com/uzmoi/clockwork-base32-ts/issues"
   },
   "homepage": "https://github.com/uzmoi/clockwork-base32-ts#readme",
-  "devDependencies": {
-    "typescript": "5.7.0-beta"
+  "dependencies": {
+    "typescript": "^7.0.2"
   }
 }
