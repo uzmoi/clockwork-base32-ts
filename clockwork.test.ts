@@ -55,11 +55,11 @@ describe("decode", () => {
 
   describe("error", () => {
     test("decode(U)", () => {
-      assertThrows(() => decode("U"), RangeError);
+      assertThrows(() => decode("U"), SyntaxError);
     });
 
     test("decode(あ)", () => {
-      assertThrows(() => decode("あ"), RangeError);
+      assertThrows(() => decode("あ"), SyntaxError);
     });
   });
 });
