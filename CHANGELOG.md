@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.2] - 2026-08-11
+
+- Change typescript from `dependencies` to `devDependencies` in package.json.
+
 ## [1.1.1] - 2026-08-11
 
 - Reduce bundle size
