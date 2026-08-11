@@ -3,12 +3,12 @@
 [![NPM Version][npm-badge]](https://www.npmjs.com/package/@uzmoi/clockwork-base32)
 [![JSR Version][jsr-badge]](https://jsr.io/@uzmoi/clockwork-base32)
 [![License][license-badge]](https://opensource.org/license/MIT)
-[![npm bundle size][bundle-size-badge]](https://bundlephobia.com/package/@uzmoi/clockwork-base32)
+[![bundle size][bundlejs-badge]](https://bundlejs.com/?q=@uzmoi/clockwork-base32&treeshake=[*])
 
 [npm-badge]: https://img.shields.io/npm/v/@uzmoi/clockwork-base32?style=flat-square&logo=npm
 [jsr-badge]: https://img.shields.io/jsr/v/@uzmoi/clockwork-base32?style=flat-square&logo=jsr
 [license-badge]: https://img.shields.io/github/license/uzmoi/clockwork-base32-ts?style=flat-square
-[bundle-size-badge]: https://img.shields.io/bundlephobia/min/@uzmoi/clockwork-base32?style=flat-square
+[bundlejs-badge]: https://img.shields.io/bundlejs/size/@uzmoi/clockwork-base32?style=flat-square
 
 A fast and minimal implementation of
 [Clockwork Base32](https://gist.github.com/szktty/228f85794e4187882a77734c89c384a8)
