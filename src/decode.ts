@@ -50,7 +50,7 @@ decodeSymbolMap[0x49] = decodeSymbolMap[0x69] = 1; // I
 decodeSymbolMap[0x4C] = decodeSymbolMap[0x6C] = 1; // L
 
 for (let i = 0; i < encodeSymbols.length; i++) {
-  const code = encodeSymbols[i]!.charCodeAt(0);
+  const code = encodeSymbols.charCodeAt(i);
   decodeSymbolMap[code] = i;
   // is upper alphabet
   if (0x40 < code) {
